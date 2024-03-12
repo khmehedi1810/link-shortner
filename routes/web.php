@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LinkShorterController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,3 +18,6 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Home'); // This will get component Test.jsx from the resources/js/Pages/Test.jsx
 });
+
+Route::post('list-shortner', [LinkShorterController::class, 'store']);
+Route::get('ly/{id}', [LinkShorterController::class, 'show']);

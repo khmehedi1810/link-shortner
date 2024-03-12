@@ -17,9 +17,10 @@ class LinkShorterController extends Controller
         $this->shortnerRepository = $shortnerRepository;
     }
 
-    public function show(Request $request, string $id): JsonResponse
+    public function show(Request $request, string $id)
     {
-        dd($this->shortnerRepository->getLink($id));
+        $url = $this->shortnerRepository->getLink($id);
+        return redirect($url->long_url);
     }
 
     public function store(Request $request): JsonResponse
